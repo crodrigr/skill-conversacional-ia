@@ -2,7 +2,7 @@
 
 ## 📝 Instrucciones
 
-10 preguntas · 5 minutos · una sola respuesta correcta salvo que se indique.
+12 preguntas · 6 minutos · una sola respuesta correcta salvo que se indique.
 
 ---
 
@@ -60,3 +60,12 @@
 - b) Darle fuentes actualizadas para consultar antes de responder (idea de RAG)
 - c) Apagarlo y encenderlo
 - d) Usar un chatbot de reglas siempre
+
+**11.** Ordena de más antiguo a más reciente: (A) ChatGPT · (B) ELIZA · (C) El Transformer.
+
+**12.** ¿Qué etapa convierte un modelo que solo predice texto en un asistente que conversa y sigue instrucciones?
+
+- a) Recolectar datos
+- b) El ajuste con ejemplos de conversaciones y la alineación con feedback humano
+- c) Tokenizar
+- d) Apagar el modelo

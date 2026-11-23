@@ -1,4 +1,4 @@
-# 💡 Ejemplo 03 — El mapa IA, ML, DL y LLM
+# 💡 Ejemplo 04 — El mapa IA, ML, DL y LLM
 
 ## 🌍 Contexto
 

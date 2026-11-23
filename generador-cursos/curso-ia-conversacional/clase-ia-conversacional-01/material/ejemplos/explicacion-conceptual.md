@@ -33,7 +33,24 @@ Hay dos grandes familias de asistentes.
   - ✅ Flexibles ante casi cualquier pregunta.
   - ❌ Pueden equivocarse con mucha seguridad.
 
+🔗 **Analogía**: un cajero con un manual fijo frente a un empleado con experiencia que improvisa ante lo nuevo.
+
 📎 Ver en la práctica: [Ejemplo 02 — Reglas vs. LLM](02-reglas-vs-llm.md)
+
+### 🧠 Concepto: Orígenes y evolución
+
+La idea de conversar con máquinas es antigua y cambió de enfoque.
+
+- **1950**: Alan Turing propone el "juego de la imitación".
+- **1966**: **ELIZA** (Joseph Weizenbaum, MIT) imita a un terapeuta con reglas; muestra que tendemos a atribuir comprensión a quien responde bien.
+- **2011–2016**: llegan los asistentes de voz (Siri, Alexa, Google Assistant).
+- **2017**: el **Transformer**, creado por investigadores de Google, hace posibles los LLM modernos.
+- **2022**: **ChatGPT** populariza la conversación con un LLM.
+- El gran cambio: de **escribir el guion** a **entrenar un modelo**.
+
+🔗 **Analogía**: es como pasar de seguir un guion de teatro (ELIZA) a un actor que improvisa tras haber visto miles de obras (un LLM).
+
+📎 Ver en la práctica: [Ejemplo 03 — Orígenes y evolución](03-origenes-y-evolucion.md)
 
 ---
 
@@ -50,7 +67,7 @@ Son conjuntos que se contienen unos a otros.
 
 🔗 **Analogía**: aprender a distinguir perros de gatos viendo miles de fotos, en vez de que alguien te dicte una lista de reglas.
 
-📎 Ver en la práctica: [Ejemplo 03 — El mapa IA, ML, DL y LLM](03-mapa-ia-ml-dl-llm.md)
+📎 Ver en la práctica: [Ejemplo 04 — El mapa IA, ML, DL y LLM](04-mapa-ia-ml-dl-llm.md)
 
 ### 🧠 Concepto: Un LLM predice el siguiente token
 
@@ -61,7 +78,24 @@ Un **LLM** (*Large Language Model*) es "grande" por sus datos y sus parámetros.
 - Repitiendo esa tarea, escribe párrafos enteros.
 - No "sabe" hechos como una persona: reproduce patrones.
 
-📎 Ver en la práctica: [Ejemplo 03 — El mapa IA, ML, DL y LLM](03-mapa-ia-ml-dl-llm.md)
+🔗 **Analogía**: es como el autocompletar del teléfono, pero entrenado con muchísimo más texto.
+
+📎 Ver en la práctica: [Ejemplo 04 — El mapa IA, ML, DL y LLM](04-mapa-ia-ml-dl-llm.md)
+
+### 🧠 Concepto: Cómo se construye un LLM
+
+Un LLM se **entrena** en etapas.
+
+- **Datos**: se reúne y limpia mucho texto variado.
+- **Preentrenamiento**: el modelo practica predecir el siguiente token; es la etapa más larga y costosa.
+- **Ajuste**: se entrena con ejemplos de instrucciones y conversaciones.
+- **Alineación**: personas evalúan respuestas y se aplican reglas de seguridad.
+- **Evaluación y publicación**: se prueba, se lanza y se actualiza después.
+- El modelo no se actualiza solo: por eso puede tener datos desactualizados.
+
+🔗 **Analogía**: aprender a cocinar (preentrenar), a atender mesas (ajustar) y a corregir según el comensal (alinear).
+
+📎 Ver en la práctica: [Ejemplo 05 — Cómo se construye un LLM](05-como-se-construye-un-llm.md)
 
 ---
 
@@ -78,7 +112,7 @@ Una **red neuronal** es un conjunto de "neuronas" artificiales organizadas en ca
 
 🔗 **Analogía**: una cadena humana donde cada persona escucha a varias, decide cuánto caso les hace y avisa a la siguiente.
 
-📎 Ver en la práctica: [Ejemplo 04 — La red neuronal y sus perillas](04-red-neuronal-y-perillas.md)
+📎 Ver en la práctica: [Ejemplo 06 — La red neuronal y sus perillas](06-red-neuronal-y-perillas.md)
 
 ### 🧠 Concepto: Entrenamiento
 
@@ -92,7 +126,7 @@ Una **red neuronal** es un conjunto de "neuronas" artificiales organizadas en ca
 
 🔗 **Analogía**: afinar una receta probando y corrigiendo la sal, el tiempo y el fuego.
 
-📎 Ver en la práctica: [Ejemplo 04 — La red neuronal y sus perillas](04-red-neuronal-y-perillas.md)
+📎 Ver en la práctica: [Ejemplo 06 — La red neuronal y sus perillas](06-red-neuronal-y-perillas.md)
 
 ---
 
@@ -108,7 +142,7 @@ Un **token** es un fragmento de texto: una palabra, parte de una palabra o un si
 
 🔗 **Analogía**: piezas de Lego de texto.
 
-📎 Ver en la práctica: [Ejemplo 05 — Tokens y atención](05-tokens-y-atencion.md)
+📎 Ver en la práctica: [Ejemplo 07 — Tokens y atención](07-tokens-y-atencion.md)
 
 ### 🧠 Concepto: Atención
 
@@ -120,7 +154,7 @@ La **atención** es el mecanismo del **Transformer** (arquitectura presentada en
 
 🔗 **Analogía**: subrayar con un marcador las pistas de una frase.
 
-📎 Ver en la práctica: [Ejemplo 05 — Tokens y atención](05-tokens-y-atencion.md)
+📎 Ver en la práctica: [Ejemplo 07 — Tokens y atención](07-tokens-y-atencion.md)
 
 ### 🧠 Concepto: Generación token a token
 
@@ -131,11 +165,25 @@ El modelo escribe de a un token por vez.
 - Lo añade al texto y repite.
 - Por eso la misma pregunta puede producir respuestas distintas.
 
-📎 Ver en la práctica: [Ejemplo 05 — Tokens y atención](05-tokens-y-atencion.md)
+🔗 **Analogía**: es como tirar un dado cargado que favorece las palabras más probables: casi siempre sale una buena opción, pero no siempre la misma.
+
+📎 Ver en la práctica: [Ejemplo 07 — Tokens y atención](07-tokens-y-atencion.md)
 
 ---
 
-## 🌍 B5 · Límites y adelanto
+## 🌍 B5 · Actores, usos, límites y adelanto
+
+### 🧠 Concepto: Quién los construye y para qué se usan
+
+Los LLM los construyen equipos grandes con muchos recursos.
+
+- **Quiénes**: laboratorios y empresas de IA (OpenAI, Google, Anthropic, Meta, Mistral, entre otros), investigadores, ingenieros, personas evaluadoras y la comunidad de código abierto.
+- **Para qué**: atención al cliente, educación, redacción y resumen, programación, traducción y accesibilidad, análisis de documentos.
+- **Precaución**: la responsabilidad del uso es también de quien los usa; en temas delicados se necesita supervisión humana.
+
+🔗 **Analogía**: es como una película: la hacen muchos equipos (producción, dirección, pruebas con público) y luego se usa para fines muy distintos.
+
+📎 Ver en la práctica: [Ejemplo 08 — Quién lo construye y para qué se usa](08-quien-lo-construye-y-para-que.md)
 
 ### 🧠 Concepto: Limitaciones de las IA conversacionales
 
@@ -147,7 +195,9 @@ Un LLM puede fallar de varias formas.
 - **Sin comprensión real**: predice texto; no vive el mundo.
 - Buen hábito: **verificar** lo importante con fuentes confiables y no compartir datos personales.
 
-📎 Ver en la práctica: [Ejemplo 06 — Limitaciones y puente a RAG](06-limitaciones-y-puente-a-rag.md)
+🔗 **Analogía**: un estudiante muy seguro de sí mismo que a veces responde de memoria sin comprobar.
+
+📎 Ver en la práctica: [Ejemplo 09 — Limitaciones y puente a RAG](09-limitaciones-y-puente-a-rag.md)
 
 ### 🌉 Concepto: Puente a RAG
 
@@ -161,7 +211,7 @@ Un LLM puede fallar de varias formas.
 
 > Aquí solo se presenta la idea; se desarrolla en un módulo posterior. Lectura complementaria (divulgación comercial): Ortiz Ascencio, A., "La generación aumentada por recuperación (RAG): qué es y cómo puede transformar tu negocio", blog de Minds2, 2024.
 
-📎 Ver en la práctica: [Ejemplo 06 — Limitaciones y puente a RAG](06-limitaciones-y-puente-a-rag.md)
+📎 Ver en la práctica: [Ejemplo 09 — Limitaciones y puente a RAG](09-limitaciones-y-puente-a-rag.md)
 
 ---
 
@@ -172,4 +222,7 @@ Un LLM puede fallar de varias formas.
 - Un LLM predice el siguiente token.
 - Las redes aprenden ajustando pesos.
 - La atención permite entender el contexto.
+- Hay una historia: de ELIZA (reglas) al Transformer y ChatGPT (aprendizaje).
+- Un LLM se construye en etapas: datos, preentrenamiento, ajuste y alineación.
+- Lo construyen equipos de empresas, universidades y comunidad; se usa en muchas tareas.
 - Todo asistente puede equivocarse: verifica.

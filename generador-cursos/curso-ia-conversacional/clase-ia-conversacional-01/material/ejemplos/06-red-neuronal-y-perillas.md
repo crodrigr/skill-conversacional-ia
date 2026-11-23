@@ -1,4 +1,4 @@
-# 💡 Ejemplo 04 — La red neuronal y sus perillas
+# 💡 Ejemplo 06 — La red neuronal y sus perillas
 
 ## 🌍 Contexto
 

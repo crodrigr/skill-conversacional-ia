@@ -8,6 +8,7 @@ Módulo 01 · IA Conversacional
 
 - Explicar cómo "conversa" una máquina
 - Ubicar a los LLM en el mapa de la IA
+- Conocer sus orígenes y cómo se construye
 - Entender redes neuronales y Transformers
 - Detectar los límites de un asistente
 
@@ -17,11 +18,11 @@ Módulo 01 · IA Conversacional
 
 | Parte | Tiempo |
 |---|---|
-| 🗣️ IA conversacional | 30 min |
-| 🧠 LLM, ML y Deep Learning | 25 min |
-| 🕸️ Redes neuronales | 25 min |
-| 🔦 Transformers | 25 min |
-| 📌 Síntesis y quiz | 15 min |
+| 🗣️ IA conversacional y orígenes | 30 min |
+| 🧠 LLM, ML, DL y cómo se construye | 25 min |
+| 🕸️ Redes neuronales | 22 min |
+| 🔦 Transformers | 23 min |
+| 👥 Actores, usos, límites y quiz | 20 min |
 | 🛠️ Taller | 60 min |
 
 ---
@@ -67,6 +68,25 @@ Tú → [ Interfaz ] → [ Cerebro ] → [ Respuesta ]
 En equipos: ordenen las 5 tarjetas.
 
 ⏱️ 3 minutos
+
+---
+
+# 🕰️ Orígenes: ELIZA (1966)
+
+Joseph Weizenbaum, MIT.
+
+Imitaba a un terapeuta con **reglas**.
+
+La gente creía que "la entendía".
+
+---
+
+# 🎲 Línea del tiempo
+
+1950 Turing · 1966 ELIZA · 2011 Siri
+2017 Transformer · 2022 ChatGPT
+
+**Ordena las tarjetas.** ⏱️ 4 min
 
 ---
 
@@ -134,6 +154,23 @@ Un LLM hace esto, **millones de veces**.
 
 ---
 
+# 🏗️ Cómo se construye un LLM
+
+1. 📚 Datos
+2. 🎯 Preentrenamiento
+3. 🛠️ Ajuste
+4. 🧭 Alineación
+5. ✅ Evaluación
+
+---
+
+# 🍳 Preentrenar vs. ajustar
+
+- 🎯 Preentrenar = **aprender el lenguaje** (predecir el siguiente token)
+- 🛠️ Ajustar = **aprender a conversar**
+
+---
+
 # 🧠 La neurona artificial
 
 Recibe señales → las pondera → decide qué pasar.
@@ -156,7 +193,7 @@ Cada capa detecta cosas más complejas.
 
 Todo el grupo es una red.
 
-⏱️ 12 minutos
+⏱️ 11 minutos
 
 ---
 
@@ -201,6 +238,20 @@ Por eso la misma pregunta puede dar **respuestas distintas**.
 
 ---
 
+# 👥 ¿Quién lo construye?
+
+Laboratorios y empresas · Investigadores · Ingenieros · Personas evaluadoras · Comunidad abierta
+
+---
+
+# 🎯 ¿Para qué sirve?
+
+Atención al cliente · Educación · Redacción · Programación · Traducción · Análisis de documentos
+
+🎲 **Empareja** actores y usos.
+
+---
+
 # ⚠️ Límites
 
 - 🌀 Alucinaciones
@@ -229,17 +280,18 @@ Dale al modelo **un libro** para consultar.
 
 # 📌 Lo que te llevas
 
-- IA ⊃ ML ⊃ Deep Learning ⊃ LLM
+- De ELIZA (reglas) a ChatGPT (aprendizaje)
+- IA ⊃ ML ⊃ DL ⊃ LLM
 - Un LLM predice el siguiente token
 - Las redes aprenden ajustando pesos
-- Atención = entender el contexto
+- La atención da contexto
 - Verifica siempre
 
 ---
 
 # ❓ Quiz relámpago
 
-10 preguntas · 5 minutos
+12 preguntas · 6 minutos
 
 ---
 

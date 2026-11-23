@@ -1,4 +1,4 @@
-# 💡 Ejemplo 05 — Tokens y atención
+# 💡 Ejemplo 07 — Tokens y atención
 
 ## 🌍 Contexto
 

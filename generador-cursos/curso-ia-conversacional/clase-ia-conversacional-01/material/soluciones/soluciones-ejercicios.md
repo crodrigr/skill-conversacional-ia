@@ -39,3 +39,10 @@ Respuesta modelo: "No se escriben reglas: la red tiene neuronas organizadas en c
 1. Pistas posibles: *llegó tarde, fiesta* (persona/objeto que llega) vs. *compré, tinto, cena* (bebida); *cajón* vs. *agua*; *botón, ratón* vs. *parpadea*.
 2. La atención hace que cada token pondere los demás para decidir el sentido.
 3. Ejemplo: [Pon] [ el] [ cur] [sor] [ sobre] [ el] [ bot] [ón].
+
+## 🟢 Ejercicio 07
+
+- Parte A: **ELIZA → Siri → El Transformer → ChatGPT**.
+- Parte B: **Recolección de datos → Preentrenamiento → Ajuste → Alineación**.
+- Diferencia: preentrenar es aprender el lenguaje prediciendo el siguiente token; ajustar es enseñarle a responder como asistente.
+- Usos y precauciones: aceptar variantes razonables (p. ej., resumir textos — verificar datos importantes).

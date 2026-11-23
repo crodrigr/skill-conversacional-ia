@@ -12,5 +12,7 @@
 | 8 | a | OA-6 | La atención pondera el contexto. |
 | 9 | Verdadero | OA-7 | Definición de alucinación. |
 | 10 | b | OA-7 | Idea de RAG: consultar fuentes actualizadas. |
+| 11 | B → C → A | OA-9 | ELIZA (1966), Transformer (2017), ChatGPT (2022). |
+| 12 | b | OA-9 | El preentrenamiento da el lenguaje; el ajuste y la alineación dan el comportamiento de asistente. |
 
 **OA-8** se evalúa con el taller.

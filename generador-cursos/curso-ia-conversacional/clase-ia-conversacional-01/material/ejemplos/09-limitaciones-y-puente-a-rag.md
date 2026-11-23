@@ -1,4 +1,4 @@
-# 💡 Ejemplo 06 — Limitaciones y puente a RAG
+# 💡 Ejemplo 09 — Limitaciones y puente a RAG
 
 ## 🌍 Contexto
 
