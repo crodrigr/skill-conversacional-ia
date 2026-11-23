@@ -4,6 +4,8 @@
 
 ## 🎯 Objetivo
 
+> ¿No eres experto? Empieza por la [Lectura para el docente](lectura-para-el-docente.md) y ten a mano el [Glosario](../ejemplos/glosario.md).
+
 Dictar 180 minutos dinámicos: 120 de explicación y 60 de taller, sin material adicional.
 
 ## 🪜 Agenda minuto a minuto
