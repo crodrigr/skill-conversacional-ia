@@ -1,0 +1,28 @@
+spec_version: "1.0"
+
+course:
+  id: "curso-ia-conversacional"
+  title: "IA Conversacional"
+  description: "Curso sobre el diseño, construcción y evaluación de asistentes conversacionales con modelos de lenguaje: desde el diálogo básico hasta memoria, herramientas y uso responsable."
+
+  category: "ARTIFICIAL_INTELLIGENCE"
+  level: "BASIC"
+  language: "es"
+  version: "0.2.0"
+
+  author: "Docente"
+
+  tags:
+    - ia
+    - conversacional
+    - chatbots
+    - llm
+
+settings:
+  allow_student_downloads: true
+  track_progress: true
+
+repository:
+  structure: "CONVENTIONAL"
+  module_pattern: "^clase-ia-conversacional-[0-9]{2}$"
+  module_sort: "NAME"
