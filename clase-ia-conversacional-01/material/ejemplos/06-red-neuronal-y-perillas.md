@@ -8,6 +8,16 @@ Queremos que una red decida si un correo es spam mirando tres pistas.
 
 Cada pista entra a la red con un **peso** (qué tanta importancia tiene).
 
+## 🧱 Las tres partes de una red
+
+| Capa | Función |
+|---|---|
+| **Entrada** | Recibe la información a procesar |
+| **Ocultas** | La transforman con operaciones internas; puede haber muchas |
+| **Salida** | Entrega el resultado |
+
+Regla simple: cada neurona **pasa su señal a la siguiente solo si supera un umbral**; así la información fluye capa por capa hasta producir una interpretación. (Se inspiran *libremente* en el cerebro, pero **no funcionan igual**.)
+
 ## 🧭 Explicación paso a paso
 
 1. **Entradas**: ¿contiene "premio"? ¿viene de un desconocido? ¿tiene muchos enlaces?

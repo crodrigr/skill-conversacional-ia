@@ -43,13 +43,48 @@ Un sistema que **dialoga** contigo en lenguaje natural.
 
 ---
 
-# 🧩 Sus piezas
+# 🧩 Las piezas
 
 ```text
-Tú → [ Interfaz ] → [ Cerebro ] → [ Respuesta ]
-                        ↑
-                  [ Historial ]
+🎙️ Voz → [STT] → [Entender] → [Decidir] → [Responder] → [TTS] → 🔊
+                      ↑             ↑
+                  [ Contexto ]  [ Política ]
 ```
+
+Un **engranaje**, no una sola cosa.
+
+---
+
+# 🎙️ Voz ↔ texto
+
+- **STT**: la voz se vuelve texto
+- **TTS**: el texto se vuelve voz
+
+En un chat escrito no hacen falta.
+
+---
+
+# 🎯 Entender: intención y datos
+
+*"Pide una pizza grande para el viernes a las 8"*
+
+- 🎯 **Intención**: pedir comida
+- 📦 **Slots**: grande · viernes · 20:00
+
+---
+
+# 🎲 Detective de intenciones
+
+3 frases. Encuentra la **intención** y los **datos**.
+
+⏱️ 3 minutos
+
+---
+
+# 🧭 Contexto y política de diálogo
+
+- 🧾 **Múltiples turnos**: recuerda lo dicho
+- 🧭 **Política**: ¿pregunto, confirmo o retomo?
 
 ---
 
@@ -214,6 +249,14 @@ El modelo lee **fragmentos**, no palabras exactas.
 
 ---
 
+# 🧬 Embeddings
+
+Cada token → **números** que lo ubican en un mapa.
+
+🐶 perro **cerca** de 🐱 gato · **lejos** de ✈️ avión
+
+---
+
 # 🔦 Atención
 
 Cada palabra mira **qué otras palabras importan**.
@@ -222,11 +265,32 @@ Cada palabra mira **qué otras palabras importan**.
 
 ---
 
+# 🐕 ¿A quién se refiere "su"?
+
+*El perro que estaba en el parque corrió hacia **su** dueño.*
+
+La atención conecta "su" con **perro**, no con parque.
+
+---
+
 # 🎲 ¿Qué "banco" es?
 
 "Me senté en el banco del parque a descansar."
 
 ¿Qué palabras te dieron la pista?
+
+---
+
+# 🏗️ El Transformer por dentro
+
+1. 📥 Entrada
+2. 🧬 Embedding
+3. 🔦 Self-attention
+4. 🔧 Feed-forward
+5. 🔁 Capas repetidas
+6. 📤 Salida
+
+🎲 **Armemos el Transformer** ⏱️ 3 min
 
 ---
 
@@ -291,7 +355,7 @@ Dale al modelo **un libro** para consultar.
 
 # ❓ Quiz relámpago
 
-12 preguntas · 6 minutos
+14 preguntas · 7 minutos
 
 ---
 

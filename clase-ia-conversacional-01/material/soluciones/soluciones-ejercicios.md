@@ -46,3 +46,17 @@ Respuesta modelo: "No se escriben reglas: la red tiene neuronas organizadas en c
 - Parte B: **Recolección de datos → Preentrenamiento → Ajuste → Alineación**.
 - Diferencia: preentrenar es aprender el lenguaje prediciendo el siguiente token; ajustar es enseñarle a responder como asistente.
 - Usos y precauciones: aceptar variantes razonables (p. ej., resumir textos — verificar datos importantes).
+
+## 🟡 Ejercicio 08
+
+1. Intención: reservar vuelo. Slots: destino Bogotá, fecha 12 de marzo, pasajeros 2.
+2. Intención: cambiar alarma. Slots: día mañana, hora 6:30.
+3. Intención: consultar saldo. Slot: tipo de cuenta (ahorros).
+- Pregunta de ejemplo (si falta el origen): "¿Desde qué ciudad sales?".
+- STT y TTS: cuando la conversación es por voz (altavoz inteligente, llamada, auto).
+
+## 🟢 Ejercicio 09
+
+- Orden: **D → C → A → E → F → B**.
+- "Su" = el perro; lo permite la **self-attention**.
+- Embedding: convierte cada token en números que ubican su significado en un "mapa".

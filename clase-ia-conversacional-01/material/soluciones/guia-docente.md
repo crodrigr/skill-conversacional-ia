@@ -15,25 +15,26 @@ Dictar 180 minutos dinámicos: 120 de explicación y 60 de taller, sin material 
 | Tiempo | Min | Actividad | Diapositivas |
 |---|---|---|---|
 | 0:00 | 7 | 🎲 ¿Humano o IA? | 4 |
-| 0:07 | 5 | Qué es y sus piezas | 5–6 |
-| 0:12 | 6 | Flujo + 🎲 ordenar el flujo | 7–8 |
-| 0:18 | 8 | 🕰️ Orígenes + 🎲 línea del tiempo | 9–10 |
-| 0:26 | 4 | Reglas vs. LLM + votación | 11 |
-| 0:30 | 8 | Mapa IA/ML/DL/LLM | 12–15 |
-| 0:38 | 5 | 🎲 Clasificar tarjetas *(prescindible)* | 16 |
-| 0:43 | 5 | 🎲 Adivina la siguiente palabra | 17 |
-| 0:48 | 7 | 🏗️ Cómo se construye un LLM + 🎲 receta | 18–19 |
-| 0:55 | 6 | Neurona y capas | 20–21 |
-| 1:01 | 11 | 🎲 Red neuronal humana | 22 |
-| 1:12 | 5 | Perillas / entrenamiento *(prescindible)* | 23 |
-| 1:17 | 5 | Tokens con tarjetas | 24 |
-| 1:22 | 8 | Atención | 25 |
-| 1:30 | 5 | 🎲 Frase ambigua "banco" | 26 |
-| 1:35 | 5 | Token a token y variación *(prescindible)* | 27 |
-| 1:40 | 7 | 👥 Quién lo construye y para qué + 🎲 empareja | 28–29 |
-| 1:47 | 4 | Límites y buen uso | 30 |
-| 1:51 | 3 | 🌉 Puente a RAG *(prescindible)* | 31–32 |
-| 1:54 | 6 | Resumen y quiz (12 ítems) | 33–34 |
+| 0:07 | 4 | Qué es y sus piezas | 5–6 |
+| 0:11 | 6 | Voz, comprensión y diálogo + 🎲 Detective de intenciones | 7–10 |
+| 0:17 | 4 | Flujo + 🎲 ordenar el flujo | 11–12 |
+| 0:21 | 6 | 🕰️ Orígenes + 🎲 línea del tiempo | 13–14 |
+| 0:27 | 3 | Reglas vs. LLM + votación | 15 |
+| 0:30 | 8 | Mapa IA/ML/DL/LLM | 16–19 |
+| 0:38 | 5 | 🎲 Clasificar tarjetas *(prescindible)* | 20 |
+| 0:43 | 5 | 🎲 Adivina la siguiente palabra | 21 |
+| 0:48 | 7 | 🏗️ Cómo se construye un LLM + 🎲 receta | 22–23 |
+| 0:55 | 6 | Neurona y capas | 24–25 |
+| 1:01 | 11 | 🎲 Red neuronal humana | 26 |
+| 1:12 | 5 | Perillas / entrenamiento *(prescindible)* | 27 |
+| 1:17 | 6 | Tokens y embeddings | 28–29 |
+| 1:23 | 7 | Atención + perro y su dueño | 30–31 |
+| 1:30 | 4 | 🎲 Frase ambigua "banco" | 32 |
+| 1:34 | 6 | El Transformer por dentro + 🎲 Armemos el Transformer | 33–34 |
+| 1:40 | 7 | 👥 Quién lo construye y para qué + 🎲 empareja | 35–36 |
+| 1:47 | 3 | Límites y buen uso | 37 |
+| 1:50 | 3 | 🌉 Puente a RAG *(prescindible)* | 38–39 |
+| 1:53 | 7 | Resumen y quiz (14 ítems) | 40–41 |
 
 ### 🛠️ Taller (60 min)
 
@@ -69,12 +70,24 @@ Ver [taller-01.md](../../actividades/talleres/taller-01.md): 5 + 12 + 8 + 10 + 1
 - **Materiales**: tarjetas de actores y de usos ([Ejemplo 08](../ejemplos/08-quien-lo-construye-y-para-que.md)).
 - **Cierre**: cada equipo comenta un uso que le gustaría y una precaución.
 
+### 🎲 Detective de intenciones (3 min)
+
+- **Materiales**: 3 frases proyectadas ([Ejemplo 01](../ejemplos/01-flujo-de-una-conversacion.md)).
+- **Pasos**: cada equipo escribe la **intención** y los **slots**; se comparan en voz alta.
+- **Respuestas**: 1) agendar cita · dentista, martes, tarde; 2) consultar el clima · Lima, fin de semana; 3) reservar mesa · 4 personas, hoy, 9 pm.
+- **Clave**: intención = acción; slots = datos.
+
+### 🎲 Armemos el Transformer (3 min)
+
+- **Materiales**: 6 tarjetas (Entrada, Embedding, Self-attention, Feed-forward, Capas repetidas, Salida).
+- **Pasos**: ordenar las tarjetas y decir qué le pasa a "El perro corre en el…" en cada una ([Ejemplo 07](../ejemplos/07-tokens-y-atencion.md)).
+
 ### 🎲 Ordenar el flujo (3 min)
 
 - **Materiales**: 5 tarjetas por equipo (Entrada, Interpretación, Generación, Respuesta, Historial).
 - **Orden**: Entrada → Interpretación (con historial) → Generación → Respuesta → Historial.
 
-### 🎲 Reglas vs. LLM (4 min)
+### 🎲 Reglas vs. LLM (3 min)
 
 - Proyecta [Ejemplo 02](../ejemplos/02-reglas-vs-llm.md); vota cuál responde mejor y cuál es más controlable.
 
@@ -99,11 +112,11 @@ Ver [taller-01.md](../../actividades/talleres/taller-01.md): 5 + 12 + 8 + 10 + 1
 - **Cierre**: nadie escribió la regla; salió de ajustar volúmenes.
 - **Virtual**: simular con números en el chat.
 
-### 🎲 Tokens con tarjetas (5 min)
+### 🎲 Tokens con tarjetas (parte de 6 min)
 
 - Imprime la frase "Me encanta aprender inteligencia artificial" en fragmentos; los equipos las pegan como crean que las partiría un modelo y se compara con el ejemplo.
 
-### 🎲 Frase ambigua (5 min)
+### 🎲 Frase ambigua (4 min)
 
 - Proyecta "Me senté en el banco del parque a descansar."; pide que subrayen las pistas.
 
@@ -112,7 +125,9 @@ Ver [taller-01.md](../../actividades/talleres/taller-01.md): 5 + 12 + 8 + 10 + 1
 - B1: ¿Alguna vez un asistente te respondió algo que no tenía que ver? ¿Por qué crees?
 - B2: ¿Qué diferencia hay entre "seguir reglas" y "aprender de ejemplos"?
 - B3: ¿Qué perilla moverías si la red marca como spam un correo de tu familia?
+- B1: ¿Qué pieza fallaría si hablas en un lugar con mucho ruido?
 - B4: ¿Por qué un modelo no puede "mirar" solo la palabra anterior?
+- B4: En "su dueño", ¿qué palabras te ayudaron a saber que es el perro?
 - B1: ¿Por qué crees que la gente creía que ELIZA los entendía?
 - B2: ¿Qué etapa hace que un modelo sea un buen "asistente" y no solo un predictor?
 - B5: ¿Quién es responsable cuando alguien usa mal un asistente?
@@ -124,7 +139,7 @@ Avisa antes del taller: **no escribir datos personales ni confidenciales**; usar
 
 ## 🧰 Si hay retraso
 
-Salta las dinámicas marcadas *(prescindible)* en este orden: puente a RAG → variación token a token → clasificar tarjetas → perillas.
+Salta las dinámicas marcadas *(prescindible)* en este orden: puente a RAG → clasificar tarjetas → perillas.
 
 ## 🏁 Facilitación del taller
 

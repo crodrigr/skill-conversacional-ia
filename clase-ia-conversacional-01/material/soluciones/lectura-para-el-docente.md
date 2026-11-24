@@ -28,12 +28,20 @@
 - Conversar con una máquina es un viejo sueño: **Alan Turing** (1950) propuso un juego para saber si una máquina podía hacerse pasar por una persona.
 - **ELIZA** (1966) simulaba a un terapeuta repitiendo tus frases como preguntas. No entendía nada, y aun así la gente se emocionaba: es el **efecto ELIZA**.
 - Un asistente moderno sigue un flujo: recibe tu mensaje, lo interpreta con lo hablado antes (el **historial**), genera la respuesta y la muestra.
+- Por dentro es un **engranaje de piezas**, no un solo programa:
+  - **STT** (voz → texto) y **TTS** (texto → voz): solo existen si el asistente habla.
+  - **NLU**: entender el mensaje completo, aunque no se usen las palabras exactas.
+  - **Intención**: *qué quiere lograr* la persona ("pedir una pizza").
+  - **Slots**: *los datos* de esa petición (tamaño, día, hora). Piensa en los casilleros de un formulario.
+  - **Contexto / múltiples turnos**: recordar lo dicho antes.
+  - **Política de diálogo**: decidir el siguiente paso (preguntar un dato que falta, confirmar, retomar un tema).
 
 ### Lo que puedes decir en voz alta
 
 - "Este programa no tiene ojos ni oídos: solo recibe texto y devuelve texto."
 - "Si no recordara lo que dijimos, cada mensaje sería una conversación nueva."
 - "En 1966 ya había un chatbot, pero seguía reglas. Hoy aprenden de ejemplos."
+- "Es como un restaurante: quien toma el pedido, la cocina, el camarero que recuerda tu mesa y el jefe de sala que organiza todo."
 
 ### Errores comunes
 
@@ -42,6 +50,9 @@
 
 ### Si te preguntan…
 
+- **¿Qué diferencia hay entre intención y slot?** La intención es la **acción** (reservar); los slots son los **datos** (cuántas personas, a qué hora).
+- **¿Hoy se hace todo eso por separado?** Antes sí, en módulos distintos. Hoy los asistentes con LLM suelen resolver varias piezas con **un solo modelo**, pero entender las piezas ayuda a saber qué se espera de ellos.
+- **¿Por qué es más difícil por voz?** La gente cuenta historias antes de llegar al punto, hay ruido y no hay un historial visible.
 - **¿El test de Turing ya se superó?** Hay sistemas que a veces engañan a personas en conversaciones cortas, pero no hay un consenso científico sobre qué significa "superarlo". Lo importante: sonar humano no es lo mismo que entender.
 - **¿Por qué hay respuestas tan "humanas"?** Porque aprendieron de millones de textos escritos por personas.
 
@@ -99,7 +110,8 @@
 
 ### Errores comunes
 
-- Comparar la red con un cerebro humano: la inspiración existe, pero **no funciona igual**; mejor evitar la comparación.
+- Comparar la red con un cerebro humano: se inspira *libremente* en él, pero **no funciona igual**.
+- Sobre el "umbral": cada neurona pasa su señal a la siguiente solo si es lo bastante fuerte; es la regla simple de la que sale todo lo demás.
 - Pensar que aprende mientras conversas: normalmente **ya está entrenada**.
 
 ### Si te preguntan…
@@ -114,10 +126,15 @@
 ### Lo esencial
 
 - Un **token** es un trozo de texto: puede ser una palabra, parte de una palabra o un signo. En español suelen hacer falta más tokens por palabra que en inglés.
-- Cada token se convierte en números que representan su significado, como una **ubicación en un mapa**: palabras parecidas quedan cerca.
+- Cada token se convierte en números que representan su significado (**embedding**), como una **ubicación en un mapa**: *perro* queda cerca de *gato* y lejos de *avión*.
 - La **atención** deja que cada token "mire" a los demás de la frase para decidir qué importa. Así distingue el "banco" del parque del "banco" del dinero.
 - Se presentó en 2017 en el artículo *Attention Is All You Need*, de investigadores de Google.
 - **Generar** es repetir: calcular probabilidades del siguiente token, elegir uno entre los probables, añadirlo, repetir.
+- **El Transformer por dentro (6 pasos)**: entrada → embedding → *self-attention* → *feed-forward* → **capas repetidas** → salida.
+  - **Feed-forward**: una red neuronal pequeña que *refina* lo que dejó la atención.
+  - **Capas repetidas**: la atención y el feed-forward se repiten muchas veces; cuantas más capas, más patrones complejos puede captar.
+  - **Salida**: según la tarea, predecir la siguiente palabra, clasificar o traducir.
+- **Ejemplo estrella**: en *"El perro que estaba en el parque corrió hacia su dueño"*, la atención conecta *su* con *perro* y no con *parque*, aunque estén lejos.
 
 ### Lo que puedes decir en voz alta
 
@@ -127,6 +144,8 @@
 ### Errores comunes
 
 - Creer que el modelo lee letra por letra o palabra por palabra: lee **tokens**.
+- Creer que el Transformer "entiende" porque "piensa": solo **mide relaciones** entre tokens con números.
+- Si hablas de *encoder* y *decoder*: no los necesitas. El encoder construye representaciones del texto y el decoder genera texto; muchos asistentes actuales se basan en bloques que generan texto. Di solo "capas repetidas".
 - Creer que la variación es un fallo: es parte del diseño. Existe un ajuste (*temperatura*) que controla cuánta variedad hay.
 
 ### Si te preguntan…

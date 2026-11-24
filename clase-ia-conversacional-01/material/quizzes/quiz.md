@@ -2,7 +2,7 @@
 
 ## 📝 Instrucciones
 
-12 preguntas · 6 minutos · una sola respuesta correcta salvo que se indique.
+14 preguntas · 7 minutos · una sola respuesta correcta salvo que se indique.
 
 ---
 
@@ -69,3 +69,12 @@
 - b) El ajuste con ejemplos de conversaciones y la alineación con feedback humano
 - c) Tokenizar
 - d) Apagar el modelo
+
+**13.** Quien dice "Reserva una mesa para cuatro personas hoy a las 9" expresa una **intención** y varios **slots**. ¿Cuál es el slot?
+
+- a) Reservar una mesa
+- b) Cuatro personas y hoy a las 9
+- c) Hablar con un asistente
+- d) Convertir voz en texto
+
+**14.** Ordena los pasos del Transformer: (A) Self-attention · (B) Embedding · (C) Salida · (D) Feed-forward.

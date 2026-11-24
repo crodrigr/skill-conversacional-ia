@@ -22,6 +22,22 @@ Una **IA conversacional** es un sistema que dialoga contigo en lenguaje natural.
 
 📎 Ver en la práctica: [Ejemplo 01 — El flujo de una conversación](01-flujo-de-una-conversacion.md)
 
+### 🧠 Concepto: Las piezas de una IA conversacional
+
+No es un sistema único: es un **engranaje** de piezas que trabajan juntas.
+
+- **Speech-to-Text (STT)**: convierte la voz en texto (solo si hablas).
+- **Comprensión del lenguaje (NLU)**: entiende el mensaje completo, aunque no uses las palabras exactas.
+- **Detección de intención**: descubre qué quiere lograr la persona; es difícil con voz porque la gente cuenta historias largas antes de ir al punto.
+- **Extracción de valores (slots)**: guarda datos útiles (fechas, nombres, lugares, cantidades), incluso cuando vienen varios en una misma frase.
+- **Contexto y múltiples turnos**: recuerda lo dicho para mantener la coherencia; con voz es más importante porque no hay un historial visible.
+- **Política de diálogo**: decide el siguiente paso (preguntar un dato, confirmar, retomar un tema, manejar interrupciones).
+- **Text-to-Speech (TTS)**: convierte la respuesta en voz; puede sonar robótica o muy natural según la técnica.
+
+🔗 **Analogía**: un restaurante: quien toma el pedido (entender), la cocina (generar), el camarero que recuerda la mesa (contexto) y el jefe de sala que organiza el servicio (política).
+
+📎 Ver en la práctica: [Ejemplo 01 — El flujo de una conversación y sus piezas](01-flujo-de-una-conversacion.md)
+
 ### 🧠 Concepto: Chatbot de reglas vs. asistente con LLM
 
 Hay dos grandes familias de asistentes.
@@ -109,6 +125,8 @@ Una **red neuronal** es un conjunto de "neuronas" artificiales organizadas en ca
 - **Capas**: entrada, ocultas y salida.
 - **Pesos**: el "volumen" con el que cuenta cada conexión.
 - Cada capa detecta patrones más complejos que la anterior.
+- Una neurona pasa su señal a la siguiente **solo si supera un umbral**.
+- Se inspiran libremente en el cerebro, pero **no funcionan igual**.
 
 🔗 **Analogía**: una cadena humana donde cada persona escucha a varias, decide cuánto caso les hace y avisa a la siguiente.
 
@@ -144,6 +162,17 @@ Un **token** es un fragmento de texto: una palabra, parte de una palabra o un si
 
 📎 Ver en la práctica: [Ejemplo 07 — Tokens y atención](07-tokens-y-atencion.md)
 
+### 🧠 Concepto: Embedding
+
+Un **embedding** convierte un token en una lista de números (un vector) que ubica su significado.
+
+- Palabras relacionadas quedan **cerca** (*perro* y *gato*); las que no, **lejos** (*perro* y *avión*).
+- Es la forma en que el modelo "ve" el significado: como un espacio de números.
+
+🔗 **Analogía**: un mapa de barrios donde las palabras parecidas viven en el mismo barrio.
+
+📎 Ver en la práctica: [Ejemplo 07 — Tokens, embeddings y atención](07-tokens-y-atencion.md)
+
 ### 🧠 Concepto: Atención
 
 La **atención** es el mecanismo del **Transformer** (arquitectura presentada en 2017) que permite a cada token fijarse en los demás.
@@ -151,10 +180,26 @@ La **atención** es el mecanismo del **Transformer** (arquitectura presentada en
 - Decide qué palabras de la frase importan para interpretar otra.
 - Resuelve ambigüedades ("banco" de parque o de dinero).
 - Permite mirar toda la frase a la vez, no solo la palabra anterior.
+- Ejemplo: en "El perro que estaba en el parque corrió hacia su dueño", conecta *su* con *perro*, no con *parque*.
 
 🔗 **Analogía**: subrayar con un marcador las pistas de una frase.
 
 📎 Ver en la práctica: [Ejemplo 07 — Tokens y atención](07-tokens-y-atencion.md)
+
+### 🧠 Concepto: Estructura de un Transformer
+
+Un Transformer procesa el texto en pasos.
+
+- **Entrada**: llega el texto; el modelo aún no entiende, solo recibe símbolos.
+- **Embedding**: cada token pasa a ser un vector.
+- **Self-attention**: cada palabra se conecta con las demás y pondera su importancia.
+- **Feed-forward**: una red neuronal refina lo que dejó la atención.
+- **Capas repetidas**: atención + feed-forward se repiten muchas veces; más capas permiten captar patrones más complejos.
+- **Salida**: depende de la tarea: predecir la siguiente palabra, clasificar un texto o traducir.
+
+🔗 **Analogía**: leer un texto varias veces, entendiendo algo más en cada lectura.
+
+📎 Ver en la práctica: [Ejemplo 07 — Tokens, embeddings y atención](07-tokens-y-atencion.md)
 
 ### 🧠 Concepto: Generación token a token
 
@@ -220,8 +265,9 @@ Un LLM puede fallar de varias formas.
 - IA conversacional = entrada, interpretación, generación, respuesta e historial.
 - IA ⊃ ML ⊃ Deep Learning ⊃ LLM.
 - Un LLM predice el siguiente token.
+- Una IA conversacional es un engranaje de piezas: voz, comprensión, intención, datos, contexto y política de diálogo.
 - Las redes aprenden ajustando pesos.
-- La atención permite entender el contexto.
+- La atención permite entender el contexto, y el Transformer repite atención + feed-forward en muchas capas.
 - Hay una historia: de ELIZA (reglas) al Transformer y ChatGPT (aprendizaje).
 - Un LLM se construye en etapas: datos, preentrenamiento, ajuste y alineación.
 - Lo construyen equipos de empresas, universidades y comunidad; se usa en muchas tareas.

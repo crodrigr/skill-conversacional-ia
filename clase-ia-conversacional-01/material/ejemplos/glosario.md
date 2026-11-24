@@ -23,3 +23,14 @@ Consulta rápida de los términos del módulo, en lenguaje sencillo.
 | **Sesgo** | Prejuicio heredado de los textos de entrenamiento | — |
 | **Ventana de contexto** | Cantidad de texto que el modelo puede considerar a la vez | El tamaño de la mesa de trabajo |
 | **RAG** | Dar documentos al modelo para consultar antes de responder | Examen a libro abierto |
+| **Speech-to-Text (STT)** | Convierte la voz en texto | Un transcriptor |
+| **Text-to-Speech (TTS)** | Convierte el texto en voz | Un locutor |
+| **NLU** | Comprensión del lenguaje: entiende el mensaje completo, no solo palabras sueltas | Entender la idea, no solo las palabras |
+| **Intención** | Lo que la persona quiere lograr ("pedir comida") | El objetivo detrás de la frase |
+| **Slot (valor)** | Dato útil extraído de la frase: fecha, lugar, cantidad | Los casilleros de un formulario |
+| **Múltiples turnos** | Conversación de varios intercambios que mantiene el hilo | Una charla, no preguntas sueltas |
+| **Política de diálogo** | Reglas que guían el siguiente paso de la conversación | Un mapa de navegación |
+| **Embedding / vector** | Lista de números que ubica el significado de un token | Una ubicación en un mapa |
+| **Self-attention** | Cada palabra pondera a las demás para captar el contexto | Subrayar las pistas |
+| **Feed-forward** | Red que refina la información tras la atención | Repasar los apuntes |
+| **Encoder / decoder** | Partes que construyen representaciones del texto / que generan texto | Quien lee / quien escribe |

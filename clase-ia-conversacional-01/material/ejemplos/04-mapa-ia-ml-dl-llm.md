@@ -24,6 +24,10 @@ IA ⊃ Machine Learning ⊃ Deep Learning ⊃ LLM
 - Tradicional: tú escribes las reglas → el programa da resultados.
 - ML: tú das ejemplos y resultados → el sistema deduce las reglas.
 
+**Un ejemplo de "aprender patrones"**
+
+Si el modelo lee *bailando*, *bailó*, *bailador*… puede deducir que todas están emparentadas con **bailar**, sin que nadie le haya escrito esa regla. Después de entrenar, suele hacer falta un **ajuste** (*fine-tuning*) para orientarlo a una tarea concreta.
+
 ## 🎲 Dinámica: Adivina la siguiente palabra
 
 Completa: *"Voy a la panadería a comprar…"*
