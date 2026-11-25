@@ -227,15 +227,6 @@ Un few-shot con la última salida en blanco.
 
 ---
 
-# 🧠 Aprendizaje en contexto
-
-Usa los ejemplos **solo en esta conversación**.
-
-❌ **No cambia sus parámetros.**
-❌ **No lo recuerda mañana.**
-
----
-
 # ✅ Buenos ejemplos
 
 🌈 Variados · ✅ Correctos · 📐 Mismo formato
@@ -276,6 +267,15 @@ Voten: **1 · 3 · 6 · 20**
 ¿Qué pasa al subir?
 
 ⏱️ 3 minutos *(prescindible)*
+
+---
+
+# 🧠 Aprendizaje en contexto
+
+Usa los ejemplos **solo en esta conversación**.
+
+❌ **No cambia sus parámetros.**
+❌ **No lo recuerda mañana.**
 
 ---
 
