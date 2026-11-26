@@ -1,3 +1,9 @@
 # Artefactos de ejecucion
 __pycache__/
 *.pyc
+
+# Java / Maven
+target/
+
+# Secretos
+.env
