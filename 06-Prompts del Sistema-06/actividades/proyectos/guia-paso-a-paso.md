@@ -18,6 +18,92 @@ Vas a construir **desde cero**, con Spring Boot, un asistente de biblioteca que 
 
 > Las respuestas del modelo **cambian** de una ejecución a otra. Por eso la guía describe qué observar en lugar de copiar respuestas.
 
+## 🗺️ Mapa del proyecto
+
+Así quedará al terminar. El número entre corchetes es el **paso** en que creas cada archivo.
+
+```text
+asistente-prompts-sistema/
+├── pom.xml                                   [0]
+└── src/
+    ├── main/
+    │   ├── java/com/curso/asistente/
+    │   │   ├── AsistenteApplication.java     [0]
+    │   │   ├── modelo/                       ← piezas compartidas
+    │   │   │   ├── Mensaje.java              [2]
+    │   │   │   ├── ModeloLenguaje.java       [2]
+    │   │   │   ├── OpenRouterModelo.java     [2]
+    │   │   │   ├── Pregunta.java             [2]
+    │   │   │   ├── Respuesta.java            [2]
+    │   │   │   ├── Validar.java              [2]
+    │   │   │   └── ErroresController.java    [2]
+    │   │   ├── paso1/
+    │   │   │   └── EstadoController.java     [1]
+    │   │   ├── paso2/
+    │   │   │   └── SinSistemaController.java [2]
+    │   │   ├── paso3/
+    │   │   │   └── ConSistemaController.java [3]
+    │   │   ├── paso4/
+    │   │   │   └── ConversacionController.java [4]
+    │   │   ├── paso5/
+    │   │   │   ├── Sede.java                 [5]
+    │   │   │   ├── PlantillaSistema.java     [5]
+    │   │   │   └── PlantillaController.java  [5]
+    │   │   ├── paso6/
+    │   │   │   ├── Decision.java             [6]
+    │   │   │   └── AgenteController.java     [6]
+    │   │   └── paso7/
+    │   │       ├── Guardian.java             [7]
+    │   │       └── ProtegidoController.java  [7]
+    │   └── resources/
+    │       └── application.properties        [0]
+    └── test/java/com/curso/asistente/
+        └── AsistenteTest.java                [8]
+```
+
+### 🧩 Qué hace cada clase
+
+**Arranque y piezas compartidas**
+
+| Clase | Qué hace |
+|---|---|
+| `AsistenteApplication` | Enciende la aplicación |
+| `Mensaje` | Un turno de la conversación: rol (`system`, `user`, `assistant`) y texto |
+| `ModeloLenguaje` | Contrato: recibe mensajes y devuelve la respuesta del modelo |
+| `OpenRouterModelo` | Cumple ese contrato llamando a OpenRouter con tu clave |
+| `Pregunta` | El JSON que entra: `{"mensaje":"..."}` |
+| `Respuesta` | El JSON que sale: `{"respuesta":"..."}` |
+| `Validar` | Rechaza textos vacíos |
+| `ErroresController` | Convierte los errores en mensajes claros |
+
+**Una clase o grupo por paso** (un *controlador* atiende una dirección web)
+
+| Clase | Qué hace |
+|---|---|
+| `EstadoController` | Responde que la aplicación está encendida |
+| `SinSistemaController` | Envía la pregunta sola, sin instrucciones |
+| `ConSistemaController` | Pone un system prompt fijo delante de la pregunta |
+| `ConversacionController` | Une sistema, historial y pregunta; rechaza un `system` del usuario |
+| `Sede` | Lista de sedes permitidas, con su horario y tono |
+| `PlantillaSistema` | Arma el system prompt rellenando los campos de la sede |
+| `PlantillaController` | Responde según la sede elegida |
+| `Decision` | Lee si el modelo eligió `RESPONDER` o `DERIVAR` |
+| `AgenteController` | Ejecuta la decisión: responde o crea un ticket |
+| `Guardian` | Bloquea una respuesta que muestre las instrucciones |
+| `ProtegidoController` | Limita la entrada y revisa la salida |
+| `AsistenteTest` | Prueba tu código sin internet ni clave |
+
+**Archivos que no son clases**: `pom.xml` (dependencias y versiones) y `application.properties` (puerto, modelo y de dónde se lee la clave).
+
+### 🔄 Cómo viaja una petición
+
+```text
+Tú (curl) → Controlador → arma los mensajes → ModeloLenguaje
+          → OpenRouterModelo → OpenRouter → respuesta → Tú
+```
+
+---
+
 ## ✅ Requisitos
 
 | Necesitas | Compruébalo con |
@@ -1183,24 +1269,15 @@ Debe mostrar `Tests run: 6, Failures: 0`.
 
 ## 🌳 Proyecto terminado
 
-```text
-asistente-prompts-sistema/
-├── pom.xml
-└── src/
-    ├── main/
-    │   ├── java/com/curso/asistente/
-    │   │   ├── AsistenteApplication.java
-    │   │   ├── modelo/   Mensaje · ModeloLenguaje · OpenRouterModelo · Pregunta · Respuesta · Validar · ErroresController
-    │   │   ├── paso1/    EstadoController
-    │   │   ├── paso2/    SinSistemaController
-    │   │   ├── paso3/    ConSistemaController
-    │   │   ├── paso4/    ConversacionController
-    │   │   ├── paso5/    Sede · PlantillaSistema · PlantillaController
-    │   │   ├── paso6/    Decision · AgenteController
-    │   │   └── paso7/    Guardian · ProtegidoController
-    │   └── resources/    application.properties
-    └── test/java/com/curso/asistente/AsistenteTest.java
+Compara tus carpetas con el **mapa del proyecto** del inicio. Para verlas en la terminal:
+
+```bash
+find . -name "*.java" | sort
 ```
+
+Deben aparecer 20 archivos `.java` (19 de la aplicación y 1 de pruebas).
+
+---
 
 ## 🆘 Si algo falla
 
