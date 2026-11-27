@@ -1,12 +1,12 @@
 # 🐉 Guía paso a paso: el narrador de cuentos con Spring Boot y OpenRouter
 
-Vas a construir una aplicación que recibe una pregunta, se la envía a una IA y devuelve la respuesta en forma de cuento. Todo el código Java vive en **una sola clase**, que crece en cada paso. Usa `RestClient` (Spring Framework 6.1 / Spring Boot 3.2 o superior; aquí, Spring Boot 4.1.2) y el enrutador gratuito `openrouter/free`.
+Vas a construir una aplicación que recibe una pregunta, se la envía a una IA y devuelve la respuesta en forma de cuento. Hay dos clases: la de arranque, que escribes una vez, y un **controlador**, donde haremos todas las pruebas y que crece en cada paso. Usa `RestClient` (Spring Framework 6.1 / Spring Boot 3.2 o superior; aquí, Spring Boot 4.1.2) y el enrutador gratuito `openrouter/free`.
 
 | Paso | Qué construyes | Qué aprendes |
 | ---- | -------------- | ------------ |
 | 0 | Proyecto vacío y dependencias | Estructura de Maven |
 | 1 | La aplicación arranca | `@SpringBootApplication` |
-| 2 | Un endpoint que recibe la pregunta | `@PostMapping`, JSON |
+| 2 | El controlador recibe la pregunta | `@RestController`, `@PostMapping` |
 | 3 | La clave de OpenRouter | Variables de entorno |
 | 4 | La primera llamada a la IA | `RestClient`, mensajes |
 | 5 | Solo el texto de la respuesta | `choices[0].message.content` |
@@ -21,16 +21,23 @@ ejemplo-narrador/
 ├── pom.xml                              [0] dependencias
 └── src/main/
     ├── java/com/example/openrouter/
-    │   └── OpenRouterApplication.java   [1] la única clase
+    │   ├── OpenRouterApplication.java   [1] arranca la aplicación
+    │   └── OpenRouterController.java    [2] aquí hacemos las pruebas
     └── resources/
         └── application.properties       [3] de dónde sale la clave
 ```
 
-### 🧩 Qué hace la clase `OpenRouterApplication`
+### 🧩 Qué hace cada clase
+
+| Clase | Para qué sirve |
+| ----- | -------------- |
+| `OpenRouterApplication` | Solo arranca la aplicación (`main`). No se vuelve a tocar después del paso 1. |
+| `OpenRouterController` | Recibe la petición, llama a la IA y devuelve la respuesta. |
+
+Dentro de `OpenRouterController`:
 
 | Parte | Para qué sirve | Paso |
 | ----- | -------------- | ---- |
-| `main` | Arranca la aplicación. | 1 |
 | `ask` | Atiende `POST /api/ai/ask`. | 2 |
 | `apiKey` | Guarda la clave con la que nos identificamos. | 3 |
 | `restClient` | Hace la petición HTTP a OpenRouter. | 4 |
@@ -41,8 +48,8 @@ ejemplo-narrador/
 ### 🔄 Cómo viaja una petición
 
 ```text
-Postman ──pregunta──► /api/ai/ask ──system + user──► OpenRouter ──► un modelo gratuito
-Postman ◄──texto───── Spring Boot ◄──choices[0].message.content───┘
+Postman ──pregunta──► OpenRouterController ──system + user──► OpenRouter ──► un modelo gratuito
+Postman ◄──texto───── OpenRouterController ◄──choices[0].message.content───┘
 ```
 
 ## ✅ Requisitos
@@ -105,9 +112,9 @@ Solo hace falta una dependencia, `spring-boot-starter-webmvc`: permite crear end
 
 ## 🚀 Paso 1 · La aplicación arranca
 
-`@SpringBootApplication` marca la clase de arranque y `main` la pone en marcha.
+`@SpringBootApplication` marca la clase de arranque y `main` la pone en marcha. También hace que Spring encuentre los controladores que estén en el mismo paquete.
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Crea `src/main/java/com/example/openrouter/OpenRouterApplication.java`
 
 ```java
 package com.example.openrouter;
@@ -134,7 +141,9 @@ mvn spring-boot:run
 
 - [ ] La aplicación arranca sin errores.
 
-## 📬 Paso 2 · Recibir la pregunta
+## 📬 Paso 2 · El controlador recibe la pregunta
+
+Crea el controlador junto a la clase de arranque. Desde aquí, todas las pruebas se hacen en este archivo.
 
 - `@RestController` permite que la clase responda peticiones web.
 - `@RequestMapping` y `@PostMapping` forman la ruta `/api/ai/ask`.
@@ -142,25 +151,18 @@ mvn spring-boot:run
 
 Todavía no hay IA: devolvemos la pregunta.
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Crea `src/main/java/com/example/openrouter/OpenRouterController.java`
 
 ```java
 package com.example.openrouter;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/ai")
-public class OpenRouterApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(OpenRouterApplication.class, args);
-    }
+public class OpenRouterController {
 
     @PostMapping("/ask")
     public String ask(@RequestBody Map<String, String> request) {
@@ -208,29 +210,22 @@ La clave es un secreto: se lee de una **variable de entorno** y no se escribe en
 openrouter.api.key=${OPENROUTER_API_KEY}
 ```
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterController.java`
 
 ```java
 package com.example.openrouter;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/ai")
-public class OpenRouterApplication {
+public class OpenRouterController {
 
     @Value("${openrouter.api.key}")
     private String apiKey;
-
-    public static void main(String[] args) {
-        SpringApplication.run(OpenRouterApplication.class, args);
-    }
 
     @PostMapping("/ask")
     public String ask(@RequestBody Map<String, String> request) {
@@ -277,33 +272,26 @@ Repite la petición del paso 2.
 
 Devolvemos la respuesta completa para ver qué llega.
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterController.java`
 
 ```java
 package com.example.openrouter;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/ai")
-public class OpenRouterApplication {
+public class OpenRouterController {
 
     @Value("${openrouter.api.key}")
     private String apiKey;
 
     private final RestClient restClient = RestClient.create();
-
-    public static void main(String[] args) {
-        SpringApplication.run(OpenRouterApplication.class, args);
-    }
 
     @PostMapping("/ask")
     public Map ask(@RequestBody Map<String, String> request) {
@@ -357,33 +345,26 @@ curl -X POST http://localhost:8080/api/ai/ask \
 
 El texto está en `choices[0].message.content`: la primera opción, su mensaje, su contenido. El método vuelve a devolver `String`.
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterController.java`
 
 ```java
 package com.example.openrouter;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/ai")
-public class OpenRouterApplication {
+public class OpenRouterController {
 
     @Value("${openrouter.api.key}")
     private String apiKey;
 
     private final RestClient restClient = RestClient.create();
-
-    public static void main(String[] args) {
-        SpringApplication.run(OpenRouterApplication.class, args);
-    }
 
     @PostMapping("/ask")
     public String ask(@RequestBody Map<String, String> request) {
@@ -442,35 +423,28 @@ curl -X POST http://localhost:8080/api/ai/ask \
 
 Añadimos, **antes** de la pregunta, un mensaje con el rol `system`. Define el comportamiento del asistente; el usuario solo envía el mensaje `user`.
 
-Esta es la clase terminada:
+Este es el controlador terminado:
 
-#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterApplication.java`
+#### 📄 Escribe en `src/main/java/com/example/openrouter/OpenRouterController.java`
 
 ```java
 package com.example.openrouter;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Map;
 
-@SpringBootApplication
 @RestController
 @RequestMapping("/api/ai")
-public class OpenRouterApplication {
+public class OpenRouterController {
 
     @Value("${openrouter.api.key}")
     private String apiKey;
 
     private final RestClient restClient = RestClient.create();
-
-    public static void main(String[] args) {
-        SpringApplication.run(OpenRouterApplication.class, args);
-    }
 
     @PostMapping("/ask")
     public String ask(@RequestBody Map<String, String> request) {

@@ -1,6 +1,6 @@
 # 🐉 Narrador de cuentos (Spring Boot + OpenRouter)
 
-Una sola clase Java que envía tu pregunta a `openrouter/free` y devuelve la respuesta.
+Un controlador que envía tu pregunta a `openrouter/free` y devuelve la respuesta.
 
 Para construirlo desde cero: **[guía paso a paso](guia-paso-a-paso.md)**.
 
